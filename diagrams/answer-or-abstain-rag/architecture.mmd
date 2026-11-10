@@ -1,0 +1,29 @@
+flowchart LR
+  1["User Query"]
+  2["Retriever (Vector DB)"]
+  3["Evidence Evaluator (LLM/Cross-Encoder)"]
+  4["Router (Decision Gate)"]
+  5["Abstain Handler"]
+  6["Generator (LLM)"]
+  1 -->|Retrieve relevant data| 2
+  2 -->|Evaluate evidence| 3
+  3 -->|Route based on confidence| 4
+  4 -->|Low confidence - Abstain| 5
+  4 -->|High confidence - Generate answer| 6
+
+flowchart TB
+  subgraph happy [Happy path]
+    h_1["User Query"]
+    h_2["Retriever (Vector DB)"]
+    h_3["Evidence Evaluator (LLM/Cross-Encoder)"]
+    h_4["Router (Decision Gate)"]
+    h_5["Abstain Handler"]
+    h_6["Generator (LLM)"]
+    h_1 --> h_2
+    h_2 --> h_3
+    h_3 --> h_4
+    h_4 --> h_5
+    h_5 --> h_6
+  end
+  fail["Failure / abstain"]
+  h_6 -.-> fail

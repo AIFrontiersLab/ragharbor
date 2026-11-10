@@ -1,0 +1,44 @@
+{
+  "query": "How does Answer-or-Abstain RAG keep answers grounded and governed?",
+  "tenant": "acme",
+  "principal": {
+    "subject": "alice",
+    "roles": [
+      "reader"
+    ],
+    "groups": [
+      "eng"
+    ]
+  },
+  "candidates": [
+    {
+      "doc_id": "doc-1",
+      "text": "Answer-or-Abstain RAG grounds answers in cited evidence and applies access policy.",
+      "score": 0.81,
+      "classification": "internal"
+    },
+    {
+      "doc_id": "doc-2",
+      "text": "Unrelated release notes for the billing service.",
+      "score": 0.88,
+      "classification": "public"
+    },
+    {
+      "doc_id": "doc-3",
+      "text": "Governed answers abstain when evidence is insufficient.",
+      "score": 0.62,
+      "classification": "internal"
+    },
+    {
+      "doc_id": "doc-4",
+      "text": "Restricted security review of the grounding pipeline.",
+      "score": 0.74,
+      "classification": "restricted"
+    }
+  ],
+  "options": {
+    "fail_stages": [
+      "relevance_scorer"
+    ]
+  }
+}

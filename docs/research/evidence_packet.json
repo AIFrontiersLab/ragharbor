@@ -1,0 +1,31 @@
+{
+  "concept_id": 40,
+  "concept_name": "Answer-or-Abstain RAG",
+  "disagreements": [],
+  "evidence": [
+    {
+      "claims": [
+        "Lexical search recovers exact identifiers that embeddings miss.",
+        "Dense retrieval recovers paraphrases that BM25 misses.",
+        "Score fusion without diversity controls repeats near-duplicate chunks."
+      ],
+      "id": "ev-hybrid-1",
+      "mock": true,
+      "summary": "Keyword and vector retrieval catch different failure classes; fusion needs explicit ties.",
+      "title": "Hybrid retrieval practice notes",
+      "url": ""
+    },
+    {
+      "claims": [
+        "Disclose validation method when labeling work peer-reviewed by AI.",
+        "Unsupported performance claims should block selection."
+      ],
+      "id": "ev-eval-1",
+      "mock": true,
+      "summary": "Model agreement is not verification.",
+      "title": "Evaluation reminder",
+      "url": ""
+    }
+  ],
+  "notes": "Shared evidence packet for independent authors."
+}

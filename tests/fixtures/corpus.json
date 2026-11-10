@@ -1,0 +1,48 @@
+[
+  {
+    "doc_id": "kb-001",
+    "text": "Hybrid retrieval combines lexical and dense signals to improve recall.",
+    "classification": "public"
+  },
+  {
+    "doc_id": "kb-002",
+    "text": "Reranking reorders retrieved candidates using a stronger relevance model.",
+    "classification": "public"
+  },
+  {
+    "doc_id": "kb-003",
+    "text": "Access policy filters candidates by tenant, clearance, and ACL before answering.",
+    "classification": "internal"
+  },
+  {
+    "doc_id": "kb-004",
+    "text": "Evidence-backed answers cite the passages that support each claim.",
+    "classification": "internal"
+  },
+  {
+    "doc_id": "kb-005",
+    "text": "Circuit breakers protect the pipeline when a scoring dependency degrades.",
+    "classification": "internal"
+  },
+  {
+    "doc_id": "kb-006",
+    "text": "Confidential retrieval audit notes for the security team.",
+    "classification": "confidential",
+    "acl": [
+      "security"
+    ]
+  },
+  {
+    "doc_id": "kb-007",
+    "text": "Tenant specific onboarding guide for globex retrieval.",
+    "classification": "internal",
+    "metadata": {
+      "tenant": "globex"
+    }
+  },
+  {
+    "doc_id": "kb-008",
+    "text": "Token budgets bound how much evidence reaches the answer stage.",
+    "classification": "public"
+  }
+]

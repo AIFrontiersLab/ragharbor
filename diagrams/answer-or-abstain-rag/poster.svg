@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1536" viewBox="0 0 1024 1536">
+<rect width="100%" height="100%" fill="#FAF7F0"/>
+<text x="56" y="64" fill="#1A4BFF" font-size="22" font-family="Arial, Helvetica, sans-serif" font-weight="700">AI FRONTIERS FORUM</text>
+<text x="56" y="120" fill="#0B1F3A" font-size="42" font-family="Arial, Helvetica, sans-serif" font-weight="700">Answer-or-Abstain RAG</text>
+<text x="56" y="168" fill="#5A6B7D" font-size="22" font-family="Arial, Helvetica, sans-serif">A linear pipeline where the Evidence Evaluator acts as a firewall.</text>
+<rect x="48.0" y="280.0" width="293.3" height="220.0" rx="16" fill="#FFFFFF" stroke="#1A4BFF" stroke-width="3"/>
+<text x="68.0" y="320.0" fill="#1A4BFF" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">User Query</text>
+<text x="68.0" y="358.0" fill="#0B1F3A" font-size="18" font-family="Arial, Helvetica, sans-serif">Initial input from the user that</text>
+<text x="68.0" y="384.0" fill="#0B1F3A" font-size="18" font-family="Arial, Helvetica, sans-serif">needs processing.</text>
+<rect x="365.3" y="280.0" width="293.3" height="220.0" rx="16" fill="#FFFFFF" stroke="#1A4BFF" stroke-width="3"/>
+<text x="385.3" y="320.0" fill="#1A4BFF" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">Retriever (Vector DB)</text>
+<text x="385.3" y="358.0" fill="#0B1F3A" font-size="18" font-family="Arial, Helvetica, sans-serif">Fetches relevant documents or data</text>
+<text x="385.3" y="384.0" fill="#0B1F3A" font-size="18" font-family="Arial, Helvetica, sans-serif">points based on the user query.</text>
+<rect x="682.7" y="280.0" width="293.3" height="220.0" rx="16" fill="#FFFFFF" stroke="#1A4BFF" stroke-width="3"/>
+<text x="702.7" y="320.0" fill="#1A4BFF" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">Evidence Evaluator (LLM/Cross-Encoder)</text>
+<text x="702.7" y="358.0" fill="#0B1F3A" font-size="18" font-family="Arial, Helvetica, sans-serif">Assesses the retrieved evidence for</text>
+<text x="702.7" y="384.0" fill="#0B1F3A" font-size="18" font-family="Arial, Helvetica, sans-serif">relevance and confidence.</text>
+<rect x="48.0" y="524.0" width="293.3" height="220.0" rx="16" fill="#FFFFFF" stroke="#1A4BFF" stroke-width="3"/>
+<text x="68.0" y="564.0" fill="#1A4BFF" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">Router (Decision Gate)</text>
+<text x="68.0" y="602.0" fill="#0B1F3A" font-size="18" font-family="Arial, Helvetica, sans-serif">Decides whether to proceed to the</text>
+<text x="68.0" y="628.0" fill="#0B1F3A" font-size="18" font-family="Arial, Helvetica, sans-serif">Generator or abstain based on</text>
+<text x="68.0" y="654.0" fill="#0B1F3A" font-size="18" font-family="Arial, Helvetica, sans-serif">confidence scores.</text>
+<rect x="365.3" y="524.0" width="293.3" height="220.0" rx="16" fill="#FFFFFF" stroke="#1A4BFF" stroke-width="3"/>
+<text x="385.3" y="564.0" fill="#1A4BFF" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">Abstain Handler</text>
+<text x="385.3" y="602.0" fill="#0B1F3A" font-size="18" font-family="Arial, Helvetica, sans-serif">Handles cases where confidence is</text>
+<text x="385.3" y="628.0" fill="#0B1F3A" font-size="18" font-family="Arial, Helvetica, sans-serif">low, returning an 'Insufficient</text>
+<text x="385.3" y="654.0" fill="#0B1F3A" font-size="18" font-family="Arial, Helvetica, sans-serif">Evidence' message.</text>
+<rect x="682.7" y="524.0" width="293.3" height="220.0" rx="16" fill="#FFFFFF" stroke="#1A4BFF" stroke-width="3"/>
+<text x="702.7" y="564.0" fill="#1A4BFF" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">Generator (LLM)</text>
+<text x="702.7" y="602.0" fill="#0B1F3A" font-size="18" font-family="Arial, Helvetica, sans-serif">Produces the final answer if</text>
+<text x="702.7" y="628.0" fill="#0B1F3A" font-size="18" font-family="Arial, Helvetica, sans-serif">evidence is deemed sufficient.</text>
+<text x="56" y="1496" fill="#5A6B7D" font-size="16" font-family="Arial, Helvetica, sans-serif">For more AI learning, register free:  https://aifrontiersforum.org/join</text>
+</svg>

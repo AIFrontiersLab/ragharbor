@@ -1,0 +1,31 @@
+# Default profile. Every key is optional; omitted keys use code defaults.
+[app]
+environment = "default"
+log_level = "INFO"
+
+[pipeline]
+stages = ["intake", "corpus_retrieval", "signal_enricher", "ranking_cache", "relevance_scorer", "graceful_fallback", "access_policy", "token_budget_governor", "approval_gate", "audit_recorder", "answer_assembly"]
+top_k = 10
+max_candidates = 200
+prior_weight = 0.4
+
+[resilience]
+breaker_failure_threshold = 3
+breaker_reset_seconds = 30.0
+retry_attempts = 2
+
+[governance]
+default_clearance = "internal"
+redact_pii = true
+approval_risk_threshold = 0.8
+
+[governance.role_clearances]
+guest = "public"
+reader = "internal"
+analyst = "confidential"
+admin = "restricted"
+
+[cache]
+enabled = true
+capacity = 1024
+ttl_seconds = 300.0

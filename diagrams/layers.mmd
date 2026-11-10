@@ -1,0 +1,36 @@
+flowchart TB
+    subgraph Inbound[Inbound adapters]
+        http[WSGI HTTP API]
+        cli[CLI]
+    end
+    subgraph Application
+        bus[Message bus] --> handlers[Use-case handlers]
+        handlers --> orch[Orchestrator]
+        handlers --> uow[Unit of work]
+    end
+    subgraph Core[Domain + stages]
+        stages[Stage strategies] --> domain[Domain model and rules]
+        components[Concept components] --> stages
+    end
+    subgraph CrossCutting[Cross-cutting]
+        res[Resilience]
+        gov[Governance]
+        obs[Observability]
+        wf[Workflows]
+    end
+    subgraph Outbound[Outbound adapters]
+        repo[Run repositories]
+        corpus[Corpus]
+        cache[TTL cache]
+        events[Event bus]
+        audit[Audit sinks]
+    end
+    http --> bus
+    cli --> bus
+    orch --> stages
+    orch --> res
+    orch --> obs
+    orch --> wf
+    stages --> gov
+    stages -. ports .-> Outbound
+    uow -. ports .-> repo

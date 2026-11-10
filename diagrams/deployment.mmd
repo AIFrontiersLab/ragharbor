@@ -1,0 +1,9 @@
+flowchart LR
+    lb[Ingress / load balancer] --> svc[Service]
+    svc --> p1[answer-or-abstain-rag pod 1]
+    svc --> p2[answer-or-abstain-rag pod 2]
+    svc --> p3[answer-or-abstain-rag pod N]
+    hpa[HorizontalPodAutoscaler] -. scales .-> p1
+    cm[(ConfigMap: TOML profile)] -.-> p1
+    prom[(Prometheus)] -. scrapes /metrics .-> svc
+    pvc[(Volume: jsonl runs + audit)] -.-> p1

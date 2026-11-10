@@ -1,0 +1,25 @@
+# Data flow
+
+```mermaid
+flowchart LR
+    client([Client]) --> api[HTTP / CLI adapter]
+    api --> bus[[Message bus]]
+    bus --> orch{{Orchestrator}}
+    orch --> s0["Intake<br/><i>ingest</i>"]
+    s0 --> s1["Corpus Retrieval<br/><i>retrieve</i>"]
+    s1 --> s2["Signal Enricher<br/><i>enrich</i>"]
+    s2 --> s3["Ranking Cache<br/><i>cache</i>"]
+    s3 --> s4["Relevance Scorer<br/><i>score</i>"]
+    s4 --> s5["Graceful Fallback<br/><i>fallback</i>"]
+    s5 --> s6["Access Policy<br/><i>policy</i>"]
+    s6 --> s7["Token Budget Governor<br/><i>budget</i>"]
+    s7 --> s8["Approval Gate<br/><i>approval</i>"]
+    s8 --> s9["Audit Recorder<br/><i>audit</i>"]
+    s9 --> s10["Answer Assembly<br/><i>answer</i>"]
+    s10 --> out([Outcome: answer or abstain])
+    orch -.-> obs[(Metrics / traces / audit)]
+    orch -.-> store[(Run repository)]
+```
+
+The `PipelineContext` is the only mutable object in a run. Stages read the request,
+mutate candidates, and append decisions. Nothing else carries run state.

@@ -1,0 +1,68 @@
+openapi: 3.0.3
+info:
+  title: Answer-or-Abstain RAG API
+  version: 0.1.0
+paths:
+  /healthz:
+    get: {summary: Liveness, responses: {"200": {description: ok}}}
+  /readyz:
+    get: {summary: Readiness, responses: {"200": {description: ready}, "503": {description: not ready}}}
+  /metrics:
+    get: {summary: Prometheus metrics, responses: {"200": {description: text exposition}}}
+  /v1/pipeline:
+    get: {summary: Stage topology, responses: {"200": {description: topology}}}
+  /v1/runs:
+    get: {summary: List runs, responses: {"200": {description: summaries}}}
+    post:
+      summary: Execute a run
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: "#/components/schemas/RunRequest"}
+      responses:
+        "200": {description: completed or abstained}
+        "202": {description: awaiting approval}
+        "400": {description: validation error}
+        "403": {description: forbidden}
+        "429": {description: rate limited}
+  /v1/runs/{run_id}:
+    get:
+      summary: Fetch a run
+      parameters: [{name: run_id, in: path, required: true, schema: {type: string}}]
+      responses: {"200": {description: run record}, "404": {description: not found}}
+  /v1/runs/{run_id}/approve:
+    post:
+      summary: Approve a paused run
+      parameters: [{name: run_id, in: path, required: true, schema: {type: string}}]
+      responses: {"200": {description: re-executed outcome}, "403": {description: forbidden}}
+components:
+  schemas:
+    RunRequest:
+      type: object
+      required: [query]
+      properties:
+        query: {type: string, maxLength: 4000}
+        tenant: {type: string}
+        principal:
+          type: object
+          properties:
+            subject: {type: string}
+            roles: {type: array, items: {type: string}}
+            groups: {type: array, items: {type: string}}
+        candidates:
+          type: array
+          items:
+            type: object
+            required: [doc_id]
+            properties:
+              doc_id: {type: string}
+              text: {type: string}
+              score: {type: number}
+              classification: {type: string, enum: [public, internal, confidential, restricted]}
+              acl: {type: array, items: {type: string}}
+        evidence_ids: {type: array, items: {type: string}}
+        budget_tokens: {type: integer, minimum: 0}
+        top_k: {type: integer, minimum: 1}
+        require_evidence: {type: boolean}
+        options: {type: object}

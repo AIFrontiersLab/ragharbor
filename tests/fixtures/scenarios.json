@@ -1,0 +1,91 @@
+[
+  {
+    "name": "acl_allowed",
+    "request": {
+      "query": "confidential retrieval audit notes security",
+      "tenant": "acme",
+      "principal": {
+        "subject": "carol",
+        "roles": [
+          "analyst"
+        ],
+        "groups": [
+          "security"
+        ]
+      }
+    },
+    "expect": {
+      "included": [
+        "kb-006"
+      ]
+    }
+  },
+  {
+    "name": "acl_denied",
+    "request": {
+      "query": "confidential retrieval audit notes security",
+      "tenant": "acme",
+      "principal": {
+        "subject": "bob",
+        "roles": [
+          "analyst"
+        ],
+        "groups": [
+          "finance"
+        ]
+      }
+    },
+    "expect": {
+      "excluded": [
+        "kb-006"
+      ]
+    }
+  },
+  {
+    "name": "happy_path",
+    "request": {
+      "query": "how does reranking improve retrieved candidates",
+      "tenant": "acme"
+    },
+    "expect": {
+      "status": "completed",
+      "min_citations": 1
+    }
+  },
+  {
+    "name": "no_evidence",
+    "request": {
+      "query": "zebra migration patterns in antarctica",
+      "tenant": "acme"
+    },
+    "expect": {
+      "status": "abstained",
+      "abstain_reason": "insufficient_evidence"
+    }
+  },
+  {
+    "name": "tenant_isolation",
+    "request": {
+      "query": "globex onboarding guide retrieval",
+      "tenant": "acme"
+    },
+    "expect": {
+      "excluded": [
+        "kb-007"
+      ]
+    }
+  },
+  {
+    "name": "zero_budget",
+    "requires_role": "budget",
+    "request": {
+      "query": "hybrid retrieval recall",
+      "tenant": "acme",
+      "budget_tokens": 0
+    },
+    "expect": {
+      "status": "abstained",
+      "abstain_reason": "budget_exhausted"
+    }
+  }
+]

@@ -1,0 +1,63 @@
+{
+  "boxes": [
+    {
+      "detail": "Initial input from the user that needs processing.",
+      "id": "1",
+      "label": "User Query"
+    },
+    {
+      "detail": "Fetches relevant documents or data points based on the user query.",
+      "id": "2",
+      "label": "Retriever (Vector DB)"
+    },
+    {
+      "detail": "Assesses the retrieved evidence for relevance and confidence.",
+      "id": "3",
+      "label": "Evidence Evaluator (LLM/Cross-Encoder)"
+    },
+    {
+      "detail": "Decides whether to proceed to the Generator or abstain based on confidence scores.",
+      "id": "4",
+      "label": "Router (Decision Gate)"
+    },
+    {
+      "detail": "Handles cases where confidence is low, returning an 'Insufficient Evidence' message.",
+      "id": "5",
+      "label": "Abstain Handler"
+    },
+    {
+      "detail": "Produces the final answer if evidence is deemed sufficient.",
+      "id": "6",
+      "label": "Generator (LLM)"
+    }
+  ],
+  "flows": [
+    {
+      "from": "1",
+      "label": "Retrieve relevant data",
+      "to": "2"
+    },
+    {
+      "from": "2",
+      "label": "Evaluate evidence",
+      "to": "3"
+    },
+    {
+      "from": "3",
+      "label": "Route based on confidence",
+      "to": "4"
+    },
+    {
+      "from": "4",
+      "label": "Low confidence - Abstain",
+      "to": "5"
+    },
+    {
+      "from": "4",
+      "label": "High confidence - Generate answer",
+      "to": "6"
+    }
+  ],
+  "subtitle": "A linear pipeline where the Evidence Evaluator acts as a firewall.",
+  "title": "Answer-or-Abstain RAG"
+}

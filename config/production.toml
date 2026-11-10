@@ -1,0 +1,16 @@
+[app]
+environment = "production"
+log_level = "INFO"
+
+[http]
+host = "0.0.0.0"
+port = 8080
+
+[resilience]
+bulkhead_limit = 64
+rate_limit_per_second = 20.0
+rate_limit_burst = 40
+
+[storage]
+backend = "jsonl"
+path = "/app/var/runs"

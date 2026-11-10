@@ -1,0 +1,9 @@
+services:
+  answer-or-abstain-rag:
+    build: .
+    ports: ["8080:8080"]
+    environment:
+      ANSWER_OR_ABSTAIN_RAG_CONFIG: /app/config/development.toml
+      ANSWER_OR_ABSTAIN_RAG_HTTP__HOST: 0.0.0.0
+    volumes:
+      - ./var:/app/var

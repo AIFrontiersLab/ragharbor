@@ -1,0 +1,9 @@
+[app]
+environment = "test"
+log_level = "WARNING"
+
+[cache]
+enabled = false
+
+[resilience]
+retry_attempts = 0

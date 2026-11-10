@@ -1,0 +1,7 @@
+{
+  "query": "summarise the cited evidence",
+  "evidence_ids": [
+    "ev-1",
+    "ev-2"
+  ]
+}

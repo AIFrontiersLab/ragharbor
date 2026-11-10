@@ -1,0 +1,58 @@
+{
+  "checks": [
+    {
+      "check": "pytest",
+      "detail": "edition tests",
+      "ok": true
+    },
+    {
+      "check": "readme_present",
+      "detail": "edition README",
+      "ok": true
+    },
+    {
+      "check": "pipeline_present",
+      "detail": "pipeline module",
+      "ok": true
+    },
+    {
+      "check": "no_infra_leak",
+      "detail": "clean",
+      "ok": true
+    },
+    {
+      "check": "project_scale",
+      "detail": "296 generated files",
+      "ok": true
+    },
+    {
+      "check": "evidence_packet",
+      "detail": "2 sources",
+      "ok": true
+    },
+    {
+      "check": "architecture_boxes",
+      "detail": "6 boxes",
+      "ok": true
+    },
+    {
+      "check": "peer_review_disclosed",
+      "detail": "peer-reviewed by AI",
+      "ok": true
+    },
+    {
+      "check": "post_technical_signal",
+      "detail": "linkedin technical cues",
+      "ok": true
+    }
+  ],
+  "concept_id": 40,
+  "edition": "answer-or-abstain-rag",
+  "ok": true,
+  "pytest": {
+    "ok": true,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "........................................................................ [ 28%]\n........................................................................ [ 56%]\n........................................................................ [ 84%]\n.......................................                                  [100%]\n"
+  }
+}

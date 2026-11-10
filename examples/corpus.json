@@ -1,0 +1,17 @@
+[
+  {
+    "doc_id": "kb-1",
+    "text": "Answer-or-Abstain RAG: overview and design goals.",
+    "classification": "public"
+  },
+  {
+    "doc_id": "kb-2",
+    "text": "Access policy, clearance levels, and group ACLs.",
+    "classification": "internal"
+  },
+  {
+    "doc_id": "kb-3",
+    "text": "Fallback ordering when scoring degrades.",
+    "classification": "internal"
+  }
+]

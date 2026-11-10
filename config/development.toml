@@ -1,0 +1,7 @@
+[app]
+environment = "development"
+log_level = "DEBUG"
+
+[storage]
+backend = "jsonl"
+path = "var/runs"

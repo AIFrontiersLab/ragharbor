@@ -1,0 +1,6 @@
+stateDiagram-v2
+    [*] --> closed
+    closed --> open: failures >= threshold
+    open --> half_open: reset timeout elapsed
+    half_open --> closed: probe succeeds
+    half_open --> open: probe fails

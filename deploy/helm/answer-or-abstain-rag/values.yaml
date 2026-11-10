@@ -1,0 +1,14 @@
+replicaCount: 2
+image:
+  repository: answer-or-abstain-rag
+  tag: 0.1.0
+service:
+  port: 80
+resources:
+  requests: {cpu: 250m, memory: 256Mi}
+  limits: {cpu: "1", memory: 512Mi}
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPU: 70
